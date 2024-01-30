@@ -2,18 +2,18 @@ CREATE DATABASE Spobrefy;
 
 CREATE TABLE Usuario(
     nome_usuario 		  varchar(100) PRIMARY KEY,
-    sexo		          varchar(20) CHECK (sexo IN ('Feminino', 'Masculino', 'Nao Especificado')),
+    sexo		          varchar(20) DEFAULT 'Nao Especificado' CHECK (sexo IN ('Feminino', 'Masculino', 'Nao Especificado')),
     pais	              varchar(20) NOT NULL,
     email                 varchar(100) NOT NULL,
     senha                 varchar(20) NOT NULL,
     data_nascimento       DATE NOT NULL, CHECK (data_nascimento > '1873-01-01' AND data_nascimento <= '2008-01-01')
 );
-
+ 
 CREATE TABLE Playlist(
     nome_usuario          varchar(100),
     nome_playlist         varchar(100),
-    qnt_musicas           int NOT NULL, CHECK(qnt_musicas >= 0 AND qnt_musicas <= 1000),
-    duracao_playlist      int NOT NULL, CHECK(duracao_playlist >= 0 AND duracao_playlist <= 13000),
+    qnt_musicas           int DEFAULT 0 NOT NULL, CHECK(qnt_musicas >= 0 AND qnt_musicas <= 1000),
+    duracao_playlist      int DEFAULT 0 NOT NULL, CHECK(duracao_playlist >= 0 AND duracao_playlist <= 13000),
     data_criacao          DATE NOT NULL, CHECK(data_criacao <= CURRENT_DATE),
 
     PRIMARY KEY(nome_usuario, nome_playlist),
@@ -26,20 +26,20 @@ CREATE TABLE Artista(
     ID_artista            int PRIMARY KEY,
     nome_artista          varchar(100) NOT NULL,
     pais_origem           varchar(50),
-    ano_de_nascimento     int CHECK(ano_de_nascimento > 1873)
+    ano_de_nascimento     int CHECK(ano_de_nascimento > 1300)
 );
 
 CREATE TABLE Musica(
     ID_musica             int PRIMARY KEY,
     nome_musica           varchar(100) NOT NULL,
     duracao               int NOT NULL, CHECK(duracao > 0 AND duracao < 13),
-    genero_musical        varchar(100) NOT NULL, CHECK(genero_musical IN ('Bossa Nova', 'Classica', 'Country', 'Eletronica', 'Gospel', 'Hip-hop', 'Indie', 'MPB', 'Pop', 'Rock')),
+    genero_musical        varchar(100) NOT NULL, CHECK(genero_musical IN ('Bossa Nova', 'Clássica', 'Country', 'Eletrônica', 'Gospel', 'Hip-hop', 'Indie', 'MPB', 'Pop', 'Rock')),
     ano_publicacao        int NOT NULL, CHECK (ano_publicacao <= EXTRACT(YEAR FROM CURRENT_DATE))
 );
 
 CREATE TABLE Telefone(
     nome_usuario          varchar(100),
-    telefone              varchar(11),
+    telefone              varchar(14),
 
     PRIMARY KEY(nome_usuario, telefone),
     FOREIGN KEY(nome_usuario) REFERENCES Usuario(nome_usuario)
