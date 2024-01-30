@@ -2,7 +2,7 @@ CREATE DATABASE Spobrefy;
 
 CREATE TABLE Usuario(
     nome_usuario 		  varchar(100) PRIMARY KEY,
-    sexo		          varchar(20) CHECK(sexo IN 'Feminino', 'Masculino', 'Nao Especificado'),
+    sexo		          varchar(20) CHECK (sexo IN ('Feminino', 'Masculino', 'Nao Especificado')),
     pais	              varchar(20) NOT NULL,
     email                 varchar(100) NOT NULL,
     senha                 varchar(20) NOT NULL,
@@ -10,8 +10,8 @@ CREATE TABLE Usuario(
 );
 
 CREATE TABLE Playlist(
-    nome_usuario          varchar(100) NOT NULL,
-    nome_playlist         varchar(100) NOT NULL,
+    nome_usuario          varchar(100),
+    nome_playlist         varchar(100),
     qnt_musicas           int NOT NULL, CHECK(qnt_musicas >= 0 AND qnt_musicas <= 1000),
     duracao_playlist      int NOT NULL, CHECK(duracao_playlist >= 0 AND duracao_playlist <= 13000),
     data_criacao          DATE NOT NULL, CHECK(data_criacao <= CURRENT_DATE),
@@ -38,8 +38,8 @@ CREATE TABLE Musica(
 );
 
 CREATE TABLE Telefone(
-    nome_usuario          varchar(100) NOT NULL,
-    telefone              varchar(11) NOT NULL,
+    nome_usuario          varchar(100),
+    telefone              varchar(11),
 
     PRIMARY KEY(nome_usuario, telefone),
     FOREIGN KEY(nome_usuario) REFERENCES Usuario(nome_usuario)
@@ -48,10 +48,10 @@ CREATE TABLE Telefone(
 );
 
 CREATE TABLE E_adicionada(
-    ID_musica             int NOT NULL,
-    nome_usuario          varchar(100) NOT NULL,
-    nome_playlist         varchar(100) NOT NULL,
-    data_adicao           DATE NOT NULL, CHECK(data_criacao <= CURRENT_DATE),
+    ID_musica             int,
+    nome_usuario          varchar(100),
+    nome_playlist         varchar(100),
+    data_adicao           DATE NOT NULL, CHECK(data_adicao <= CURRENT_DATE),
     
     PRIMARY KEY(ID_musica, nome_usuario, nome_playlist),
     FOREIGN KEY(ID_musica) REFERENCES Musica(ID_musica)
@@ -63,9 +63,9 @@ CREATE TABLE E_adicionada(
 );
 
 CREATE TABLE Favorita(
-    nome_usuario_favorita varchar(100) NOT NULL,
-    nome_usuario_criador  varchar(100) NOT NULL,
-    nome_playlist         varchar(100) NOT NULL,
+    nome_usuario_favorita varchar(100),
+    nome_usuario_criador  varchar(100),
+    nome_playlist         varchar(100),
 
     PRIMARY KEY(nome_usuario_favorita, nome_usuario_criador, nome_playlist),
     FOREIGN KEY(nome_usuario_favorita) REFERENCES Usuario(nome_usuario)
@@ -77,8 +77,8 @@ CREATE TABLE Favorita(
 );
 
 CREATE TABLE Curte(
-    ID_musica             int NOT NULL,
-    nome_usuario          varchar(100) NOT NULL,
+    ID_musica             int,
+    nome_usuario          varchar(100),
 
     PRIMARY KEY(ID_musica, nome_usuario),
     FOREIGN KEY(ID_musica) REFERENCES Musica(ID_musica)
@@ -90,8 +90,8 @@ CREATE TABLE Curte(
 );
 
 CREATE TABLE Escreve(
-    ID_artista            int NOT NULL,
-    ID_musica             int NOT NULL,
+    ID_artista            int,
+    ID_musica             int,
 
     PRIMARY KEY(ID_artista, ID_musica),
     FOREIGN KEY(ID_artista) REFERENCES Artista(ID_artista)
