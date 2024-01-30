@@ -2,6 +2,7 @@
 INSERT INTO Usuario VALUES('Yugo', 'Masculino', 'Brasil', 'renanyugo@estudante.ufscar.br', 'yugo123', '2000/11/15');
 INSERT INTO Usuario VALUES('DaniYuka', 'Feminino', 'Japão', 'daniyuka@gmail.com', 'D4n1Yuk4!', '2004/04/03');
 INSERT INTO Usuario VALUES('Larinha', 'Feminino', 'Brasil', 'loluzeiro@estudante.com', 'senha', '2004/07/14');
+INSERT INTO Usuario VALUES('Lucas', 'Masculino', 'Brasil', 'luqiot@outlook.com', 'estouentrando', '2000/10/21');
 INSERT INTO Usuario (nome_usuario, pais, email, senha, data_nascimento) VALUES ('Ronaldinho', 'Espanha', 'ronaldinho@gmail.com', 'r0n4ld1nh0', '1980/03/21');
 INSERT INTO Usuario VALUES('Ana Castela', 'Feminino', 'Uruguai', 'castelana@gmail.com','boiadeira30', '2000/06/16');
 
@@ -9,6 +10,8 @@ INSERT INTO Usuario VALUES('Ana Castela', 'Feminino', 'Uruguai', 'castelana@gmai
 INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('Yugo', 'Eternas', '2012/12/20');
 INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('DaniYuka', 'Faxinah', '2020/06/01');
 INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('Larinha', 'Pra ouvir no banho', '2021/02/15');
+INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('Lucas', 'Hora do descanso', '2020/06/10');
+INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('Lucas', 'Pra estudar BD', '2020/06/23');
 INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('Ronaldinho', 'País do Futebol', '2002/06/30');
 INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('Ana Castela', 'Alto Astral', '2014/05/28');
 
@@ -70,19 +73,23 @@ INSERT INTO Musica VALUES(37, 'You Belong With Me', 4, 'Country', 2008);
 INSERT INTO Musica VALUES(38, 'All My Love', 4, 'Country', 2023);
 INSERT INTO Musica VALUES(39, 'Fidelio', 6, 'Clássica', 1805);
 INSERT INTO Musica VALUES(40, 'Andante favori', 8, 'Clássica', 1803);
-INSERT INTO Musica VALUES(41, 'O Tempo Não Pára', 4, 'MPB', 1988);
+INSERT INTO Musica VALUES(41, 'O Tempo Não Para', 4, 'MPB', 1988);
 INSERT INTO Musica VALUES(42, 'Codinome Beija-Flor', 2, 'MPB', 1985);
 INSERT INTO Musica VALUES(43, 'Faz Parte Do Meu Show', 3, 'MPB', 1988);
 INSERT INTO Musica VALUES(44, 'HIGHEST IN THE ROOM', 3, 'Hip-hop', 2019);
 INSERT INTO Musica VALUES(45, 'Egmont', 9, 'Clássica', 1810);
 INSERT INTO Musica VALUES(46, 'Swan Lake, Op. 20, Act II: No. 10, Scène', 2 , 'Clássica', 1876);
 INSERT INTO Musica VALUES(47, 'Run', 4 , 'Pop', 2021);
+INSERT INTO Musica VALUES(48, 'Bury a Friend', 3 , 'Pop', 2019);
+INSERT INTO Musica VALUES(49, 'Happier Than Ever', 5 , 'Pop', 2021);
+INSERT INTO Musica VALUES(50, 'CANDY', 3 , 'Pop', 2022);
 
 --Telefone(nome_usuario, telefone)
 INSERT INTO Telefone VALUES('Yugo', '(15)99873-1234');
 INSERT INTO Telefone VALUES('Yugo', '(11)99765-4321');
 INSERT INTO Telefone VALUES('DaniYuka', '(15)98992-6473');
 INSERT INTO Telefone VALUES('Larinha', '(11)99856-0089');
+INSERT INTO Telefone VALUES('Lucas', '(12)99643-6775');
 INSERT INTO Telefone VALUES('Ronaldinho', '(51)78997-8264');
 INSERT INTO Telefone VALUES('Ronaldinho', '(51)86790-4623');
 
@@ -197,6 +204,12 @@ INSERT INTO Curte VALUES(16, 'Larinha');
 INSERT INTO Curte VALUES(30, 'Larinha');
 INSERT INTO Curte VALUES(31, 'Larinha');
 INSERT INTO Curte VALUES(44, 'Larinha');
+INSERT INTO Curte VALUES(47, 'Larinha');
+INSERT INTO Curte VALUES(01, 'Lucas');
+INSERT INTO Curte VALUES(09, 'Lucas');
+INSERT INTO Curte VALUES(48, 'Lucas');
+INSERT INTO Curte VALUES(49, 'Lucas');
+INSERT INTO Curte VALUES(50, 'Lucas');
 
 --Escreve(ID_artista, ID_musica)
 INSERT INTO Escreve VALUES(01, 01);
