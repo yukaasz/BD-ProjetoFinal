@@ -1,5 +1,6 @@
 CREATE DATABASE Spobrefy; 
 
+-- Criação da tabela Usuário
 CREATE TABLE Usuario(
     nome_usuario 		  varchar(100) PRIMARY KEY,
     sexo		          varchar(20) DEFAULT 'Nao Especificado' CHECK (sexo IN ('Feminino', 'Masculino', 'Nao Especificado')),
@@ -8,7 +9,8 @@ CREATE TABLE Usuario(
     senha                 varchar(20) NOT NULL,
     data_nascimento       DATE NOT NULL, CHECK (data_nascimento > '1873-01-01' AND data_nascimento <= '2008-01-01')
 );
- 
+
+-- Criação da tabela Playlist 
 CREATE TABLE Playlist(
     nome_usuario          varchar(100),
     nome_playlist         varchar(100),
@@ -22,6 +24,7 @@ CREATE TABLE Playlist(
         ON DELETE CASCADE -- cascade pois playlist é uma entidade fraca, se o usuario que criou a playlist for apagado, então a playlist que faz referência a esse usuário também deve ser apagada para não violar a restrição referencial
 );
 
+-- Criação da tabela Artista
 CREATE TABLE Artista(
     ID_artista            int PRIMARY KEY,
     nome_artista          varchar(100) NOT NULL,
@@ -29,6 +32,7 @@ CREATE TABLE Artista(
     ano_de_nascimento     int CHECK(ano_de_nascimento > 1300)
 );
 
+-- Criação da tabela Música 
 CREATE TABLE Musica(
     ID_musica             int PRIMARY KEY,
     nome_musica           varchar(100) NOT NULL,
@@ -37,6 +41,7 @@ CREATE TABLE Musica(
     ano_publicacao        int NOT NULL, CHECK (ano_publicacao <= EXTRACT(YEAR FROM CURRENT_DATE))
 );
 
+-- Criação da tabela Telefone
 CREATE TABLE Telefone(
     nome_usuario          varchar(100),
     telefone              varchar(14),
@@ -47,6 +52,7 @@ CREATE TABLE Telefone(
         ON DELETE CASCADE -- cascade pois se a chave primária (nome_usuario) da relacao Usuario for excluída, então a chave estrangeira (nome_usuario) de Telefone estará fazendo referência a uma tupla válida, violado a restrição de integridade referencial
 );
 
+-- Criação da tabela E_adicionada
 CREATE TABLE E_adicionada(
     ID_musica             int,
     nome_usuario          varchar(100),
@@ -62,6 +68,7 @@ CREATE TABLE E_adicionada(
         ON DELETE CASCADE -- cascade pois se a playlist deixa de existir, então a chave estrangeira de E_adicionada não fará referência a uma tupla válida. 
 );
 
+-- Criação da tabela Favorita
 CREATE TABLE Favorita(
     nome_usuario_favorita varchar(100),
     nome_usuario_criador  varchar(100),
@@ -76,6 +83,7 @@ CREATE TABLE Favorita(
         ON DELETE CASCADE -- cascade, pois se a playlist for excluída, não faz sentido um usuário favoritar uma tupla que não existe
 );
 
+-- Criação da tabela Curte
 CREATE TABLE Curte(
     ID_musica             int,
     nome_usuario          varchar(100),
@@ -89,6 +97,7 @@ CREATE TABLE Curte(
         ON DELETE CASCADE -- cascade, pois se um usuário é removido do sistema, entao não é possível haver curtidas feitas por este usuário, e, portanto, não devem haver tuplas em Curte que referenciam este usuário
 );
 
+-- Criação da tabela Escreve
 CREATE TABLE Escreve(
     ID_artista            int,
     ID_musica             int,
