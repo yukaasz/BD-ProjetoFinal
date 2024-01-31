@@ -174,6 +174,24 @@ INSERT INTO E_adicionada VALUES(24, 'Ana Castela', 'Alto Astral', '2015/03/12');
 INSERT INTO E_adicionada VALUES(25, 'Ana Castela', 'Alto Astral', '2015/03/12');
 INSERT INTO E_adicionada VALUES(26, 'Ana Castela', 'Alto Astral', '2015/03/30');
 INSERT INTO E_adicionada VALUES(29, 'Ana Castela', 'Alto Astral', '2016/06/21');
+INSERT INTO E_adicionada VALUES(46, 'Lucas', 'Pra estudar BD', '2020/06/23');
+INSERT INTO E_adicionada VALUES(48, 'Lucas', 'Pra estudar BD', '2020/06/23');
+INSERT INTO E_adicionada VALUES(44, 'Lucas', 'Pra estudar BD', '2020/06/23');
+INSERT INTO E_adicionada VALUES(36, 'Lucas', 'Pra estudar BD', '2020/06/23');
+INSERT INTO E_adicionada VALUES(12, 'Lucas', 'Pra estudar BD', '2020/06/23');
+INSERT INTO E_adicionada VALUES(01, 'Lucas', 'Pra estudar BD', '2020/06/23');
+INSERT INTO E_adicionada VALUES(09, 'Lucas', 'Pra estudar BD', '2020/06/26');
+INSERT INTO E_adicionada VALUES(49, 'Lucas', 'Pra estudar BD', '2021/06/28');
+INSERT INTO E_adicionada VALUES(50, 'Lucas', 'Pra estudar BD', '2021/06/28');
+INSERT INTO E_adicionada VALUES(19, 'Lucas', 'Pra estudar BD', '2021/06/28');
+INSERT INTO E_adicionada VALUES(51, 'Lucas', 'Pra estudar BD', '2022/07/10');
+INSERT INTO E_adicionada VALUES(46, 'Lucas', 'Hora do Descanso', '2020/06/10');
+INSERT INTO E_adicionada VALUES(02, 'Lucas', 'Hora do Descanso', '2020/06/10');
+INSERT INTO E_adicionada VALUES(12, 'Lucas', 'Hora do Descanso', '2020/06/10');
+INSERT INTO E_adicionada VALUES(14, 'Lucas', 'Hora do Descanso', '2020/06/10');
+INSERT INTO E_adicionada VALUES(40, 'Lucas', 'Hora do Descanso', '2020/06/10');
+INSERT INTO E_adicionada VALUES(39, 'Lucas', 'Hora do Descanso', '2020/06/10');
+
 
 
 --Favorita(nome_usuario_favorita, nome_usuario_criador, nome_playlist)
@@ -187,6 +205,9 @@ INSERT INTO Favorita VALUES('Ronaldinho', 'Larinha', 'Pra ouvir no banho');
 INSERT INTO Favorita VALUES('Ana Castela', 'DaniYuka', 'Faxinah');
 INSERT INTO Favorita VALUES('Ana Castela', 'Yugo', 'Eternas');
 INSERT INTO Favorita VALUES('Ana Castela', 'Ronaldinho', 'País do Futebol');
+INSERT INTO Favorita VALUES('Lucas', 'Yugo', 'Eternas');
+INSERT INTO Favorita VALUES('Lucas', 'Larinha', 'Pra ouvir no banho');
+
 
 
 --Curte(ID_musica, nome_usuario)
@@ -220,6 +241,7 @@ INSERT INTO Curte VALUES(09, 'Lucas');
 INSERT INTO Curte VALUES(48, 'Lucas');
 INSERT INTO Curte VALUES(49, 'Lucas');
 INSERT INTO Curte VALUES(50, 'Lucas');
+INSERT INTO Curte VALUES(51, 'Lucas');
 
 --Escreve(ID_artista, ID_musica)
 INSERT INTO Escreve VALUES(01, 01);
@@ -273,5 +295,5 @@ INSERT INTO Escreve VALUES(03, 47); -- Taylor e Ed escreveram
 INSERT INTO Escreve VALUES(02, 47); -- Taylor e Ed escreveram
 INSERT INTO Escreve VALUES(16, 48);
 INSERT INTO Escreve VALUES(16, 49);
-INSERT INTO Escreve VALUES(13, 50);
-INSERT INTO Escreve VALUES(13, 51);
+INSERT INTO Escreve VALUES(16, 50);
+INSERT INTO Escreve VALUES(17, 51);
