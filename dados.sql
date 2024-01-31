@@ -3,7 +3,7 @@ INSERT INTO Usuario VALUES('Yugo', 'Masculino', 'Brasil', 'renanyugo@estudante.u
 INSERT INTO Usuario VALUES('DaniYuka', 'Feminino', 'Japão', 'daniyuka@gmail.com', 'D4n1Yuk4!', '2004/04/03');
 INSERT INTO Usuario VALUES('Larinha', 'Feminino', 'Brasil', 'loluzeiro@estudante.com', 'senha', '2004/07/14');
 INSERT INTO Usuario VALUES('Lucas', 'Masculino', 'Brasil', 'luqiot@outlook.com', 'estouentrando', '2000/10/21');
-INSERT INTO Usuario (nome_usuario, pais, email, senha, data_nascimento) VALUES ('Ronaldinho', 'Espanha', 'ronaldinho@gmail.com', 'r0n4ld1nh0', '1980/03/21');
+INSERT INTO Usuario (nome_usuario, pais, email, senha, data_nascimento) VALUES ('Ronaldinho', 'Espanha', 'ronaldinho@gmail.com', 'r0n4ld1nh0', '1980/03/21'); -- O sexo não foi especificado a fim de validar o DEFAULT 'Não Especificado'
 INSERT INTO Usuario VALUES('Ana Castela', 'Feminino', 'Uruguai', 'castelana@gmail.com','boiadeira30', '2000/06/16');
 
 --Playlist(nome_usuario, nome_playlist, qnt_musicas, duracao_playlist, data_criacao)
@@ -84,7 +84,7 @@ INSERT INTO Musica VALUES(46, 'Swan Lake, Op. 20, Act II: No. 10, Scène', 165 ,
 INSERT INTO Musica VALUES(47, 'Run', 240 , 'Pop', 2021);
 INSERT INTO Musica VALUES(48, 'Bury a Friend', 193 , 'Pop', 2019);
 INSERT INTO Musica VALUES(49, 'Happier Than Ever', 298 , 'Pop', 2021);
-INSERT INTO Musica VALUES(50, 'Happier Than Ever', 298 , 'Pop', 2021);
+INSERT INTO Musica VALUES(50, 'NDA', 195 , 'Pop', 2021);
 INSERT INTO Musica VALUES(51, 'CANDY', 193 , 'Pop', 2022);
 
 --Telefone(nome_usuario, telefone)
@@ -99,7 +99,7 @@ INSERT INTO Telefone VALUES('Ronaldinho', '(51)86790-4623');
 --E_adicionada(ID_musica, nome_usuario, nome_playlist, data_adicao)
 INSERT INTO E_adicionada VALUES(03, 'Yugo', 'Eternas', '2016/09/16');
 INSERT INTO E_adicionada VALUES(08, 'Yugo', 'Eternas', '2023/03/24');
-INSERT INTO E_adicionada VALUES(09, 'Yugo', 'Eternas', '2020/05/11');
+INSERT INTO E_adicionada VALUES(09, 'Yugo', 'Eternas', '2012/12/20');
 INSERT INTO E_adicionada VALUES(13, 'Yugo', 'Eternas', '2012/12/20');
 INSERT INTO E_adicionada VALUES(14, 'Yugo', 'Eternas', '2012/12/20');
 INSERT INTO E_adicionada VALUES(15, 'Yugo', 'Eternas', '2012/12/20');
@@ -112,17 +112,17 @@ INSERT INTO E_adicionada VALUES(36, 'Yugo', 'Eternas', '2012/12/20');
 INSERT INTO E_adicionada VALUES(37, 'Yugo', 'Eternas', '2012/12/20');
 INSERT INTO E_adicionada VALUES(47, 'Yugo', 'Eternas', '2022/07/26');
 INSERT INTO E_adicionada VALUES(02, 'DaniYuka', 'Faxinah', '2020/06/01');
-INSERT INTO E_adicionada VALUES(03, 'DaniYuka', 'Faxinah', '2021/03/22');
+INSERT INTO E_adicionada VALUES(03, 'DaniYuka', 'Faxinah', '2020/06/01');
 INSERT INTO E_adicionada VALUES(05, 'DaniYuka', 'Faxinah', '2021/01/12');
 INSERT INTO E_adicionada VALUES(06, 'DaniYuka', 'Faxinah', '2022/02/17');
 INSERT INTO E_adicionada VALUES(07, 'DaniYuka', 'Faxinah', '2023/09/13');
 INSERT INTO E_adicionada VALUES(08, 'DaniYuka', 'Faxinah', '2024/01/25');
-INSERT INTO E_adicionada VALUES(09, 'DaniYuka', 'Faxinah', '2022/05/04');
+INSERT INTO E_adicionada VALUES(09, 'DaniYuka', 'Faxinah', '2024/01/25');
 INSERT INTO E_adicionada VALUES(12, 'DaniYuka', 'Faxinah', '2021/06/24');
 INSERT INTO E_adicionada VALUES(17, 'DaniYuka', 'Faxinah', '2020/11/16');
 INSERT INTO E_adicionada VALUES(19, 'DaniYuka', 'Faxinah', '2021/10/23');
-INSERT INTO E_adicionada VALUES(24, 'DaniYuka', 'Faxinah', '2020/07/18');
-INSERT INTO E_adicionada VALUES(25, 'DaniYuka', 'Faxinah', '2022/03/09');
+INSERT INTO E_adicionada VALUES(24, 'DaniYuka', 'Faxinah', '2020/11/16');
+INSERT INTO E_adicionada VALUES(25, 'DaniYuka', 'Faxinah', '2020/04/07');
 INSERT INTO E_adicionada VALUES(32, 'DaniYuka', 'Faxinah', '2023/12/21');
 INSERT INTO E_adicionada VALUES(37, 'DaniYuka', 'Faxinah', '2024/01/29');
 INSERT INTO E_adicionada VALUES(42, 'DaniYuka', 'Faxinah', '2021/06/02');
@@ -264,8 +264,8 @@ INSERT INTO Escreve VALUES(11, 45);
 INSERT INTO Escreve VALUES(15, 46);
 INSERT INTO Escreve VALUES(03, 47); -- Taylor e Ed escreveram
 INSERT INTO Escreve VALUES(02, 47); -- Taylor e Ed escreveram
-INSERT INTO Escreve VALUES(07, 34);
-INSERT INTO Escreve VALUES(14, 35);
+INSERT INTO Escreve VALUES(07, 34); --??
+INSERT INTO Escreve VALUES(14, 35); --??
 INSERT INTO Escreve VALUES(14, 48);
 INSERT INTO Escreve VALUES(02, 49);
 INSERT INTO Escreve VALUES(13, 50);
