@@ -13,7 +13,7 @@ CREATE TABLE Playlist(
     nome_usuario          varchar(100),
     nome_playlist         varchar(100),
     qnt_musicas           int DEFAULT 0 NOT NULL, CHECK(qnt_musicas >= 0 AND qnt_musicas <= 1000),
-    duracao_playlist      int DEFAULT 0 NOT NULL, CHECK(duracao_playlist >= 0 AND duracao_playlist <= 13000),
+    duracao_playlist      int DEFAULT 0 NOT NULL, CHECK(duracao_playlist >= 0 AND duracao_playlist <= 780000),
     data_criacao          DATE NOT NULL, CHECK(data_criacao <= CURRENT_DATE),
 
     PRIMARY KEY(nome_usuario, nome_playlist),
@@ -32,7 +32,7 @@ CREATE TABLE Artista(
 CREATE TABLE Musica(
     ID_musica             int PRIMARY KEY,
     nome_musica           varchar(100) NOT NULL,
-    duracao               int NOT NULL, CHECK(duracao > 0 AND duracao < 13),
+    duracao               int NOT NULL, CHECK(duracao > 0 AND duracao <= 780),
     genero_musical        varchar(100) NOT NULL, CHECK(genero_musical IN ('Bossa Nova', 'Clássica', 'Country', 'Eletrônica', 'Gospel', 'Hip-hop', 'Indie', 'MPB', 'Pop', 'Rock')),
     ano_publicacao        int NOT NULL, CHECK (ano_publicacao <= EXTRACT(YEAR FROM CURRENT_DATE))
 );
@@ -101,3 +101,25 @@ CREATE TABLE Escreve(
         ON UPDATE CASCADE -- cascade, pois se a chave primária de Musica for alterada então Escreve deve acompanhar tal mudança, para não haver violação de restrição referencial
         ON DELETE CASCADE -- cascade, pois se uma música é removida do bd, então não há artista quem escreva tal musica, e, portanto, não há relação Escreve.
 );
+
+CREATE TRIGGER t_atualiza_playlist
+AFTER INSERT OR DELETE OR UPDATE ON E_adicionada
+FOR EACH ROW
+EXECUTE PROCEDURE atualiza_playlist();
+
+CREATE OR REPLACE FUNCTION atualiza_playlist()
+RETURNS TRIGGER AS $$
+DECLARE duracao_musica INT;
+BEGIN
+    IF(TG_OP = 'INSERT') THEN
+        UPDATE Playlist SET qnt_musicas = qnt_musicas + 1 
+        WHERE nome_usuario = NEW.nome_usuario AND
+        nome_playlist = NEW.nome_playlist;
+
+        SELECT duracao FROM Musica WHERE New.ID_musica = ID_musica
+        UPDATE Playlist SET duracao_playlist = duracao_playlist + NEW.duracao 
+
+
+
+END;
+$$ LANGUAGE plpgsql;
