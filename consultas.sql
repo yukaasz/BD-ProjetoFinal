@@ -3,6 +3,19 @@
 SELECT nome_playlist FROM playlist 
 WHERE data_criacao BETWEEN <inicio_intervalo> AND <fim_intervalo>;
 
+--Qual o gênero musical mais curtido por país?
+--Membro proponente: Daniella
+SELECT pais, genero_musical 
+FROM Usuario NATURAL JOIN Curte NATURAL JOIN Musica 
+GROUP BY genero_musical, pais 
+HAVING COUNT(genero_musical) = (SELECT MAX(conta) 
+									  FROM (SELECT pais, COUNT(genero_musical) AS conta
+											FROM Usuario NATURAL JOIN Curte NATURAL JOIN Musica
+											GROUP BY genero_musical, pais) t 
+									  WHERE t.pais = Usuario.pais)
+ORDER BY pais ASC, genero_musical ASC;
+
+
 --Qual a data com o maior número de adições de músicas na playlist ‘Faxinah’?
 --Membro proponente: Daniella
 SELECT data_adicao, COUNT(data_adicao) AS quantidade
@@ -14,6 +27,7 @@ HAVING COUNT(data_adicao) = (SELECT MAX(conta)
                                    FROM E_adicionada
 								   WHERE nome_playlist = <Nome da playlist>
 								   GROUP BY data_adicao));
+
 
 --Quantas pessoas do sexo feminino curtem músicas de um determinado gênero musical? 
 --Membro proponente: Lara
@@ -42,33 +56,33 @@ WHERE duracao_playlist IN (SELECT MAX(duracao_playlist)
 --Qual o gênero musical que prevalece nas músicas da artista Billie Eilish?
 --Membro proponente: Lucas
 
+
 --Quantas músicas de um determinado artista estão presentes em uma playlist? (sumarização)
 --Membro proponente: Renan
-
 SELECT nome_playlist, COUNT(ID_musica) AS qnt
 FROM E_adicionada NATURAL JOIN Musica NATURAL JOIN Escreve
 WHERE ID_artista = <ID_artista>
-AND nome_playlist IN (<nome_playlist_1>, <nome_playlist_n>)
+AND nome_playlist IN (<nome_playlist_n>)
 GROUP BY ID_artista, nome_playlist;
+
 
 --Qual o tempo total de músicas curtidas por um usuário? (sumarização)
 --Membro proponente: Renan
-
 SELECT nome_usuario, (tempo_total/3600 || ':' || (tempo_total%3600)/60 || ':' || tempo_total%60) AS tempo_curtida_total
 FROM (
 	SELECT nome_usuario, SUM(duracao) AS tempo_total
 	FROM Usuario NATURAL JOIN Curte NATURAL JOIN Musica
-	WHERE nome_usuario IN (<nome_usuario_1>, <nome_usuario_n>)
+	WHERE nome_usuario IN (<nome_usuario_n>)
 	GROUP BY nome_usuario
 );
 
+
 --Quantas músicas de um determinado artista foram adicionadas a uma playlist na data de criação desta mesma playlist? (sumarização)
 --Membro proponente: Renan
-
 SELECT nome_artista, COUNT(ID_musica) AS qnt
 FROM Artista 
 NATURAL JOIN Escreve NATURAL JOIN Musica NATURAL JOIN E_adicionada NATURAL JOIN Playlist 
-WHERE nome_artista IN(<nome_artista_1>, <nome_artista_n>)
+WHERE nome_artista IN(<nome_artista_n>)
 AND nome_playlist = <nome_playlist>
 AND data_adicao = data_criacao
 GROUP BY nome_artista;

@@ -11,7 +11,7 @@ INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('Yugo', 
 INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('DaniYuka', 'Faxinah', '2020/06/01');
 INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('Larinha', 'As melhores', '2021/02/15');
 INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('Larinha', 'Pra ouvir no banho', '2023/09/21');
-INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('Lucas', 'Hora do descanso', '2020/06/10');
+INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('Lucas', 'Hora do Descanso', '2020/06/10');
 INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('Lucas', 'Pra estudar BD', '2020/06/23');
 INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('Ronaldinho', 'País do Futebol', '2002/06/30');
 INSERT INTO Playlist (nome_usuario, nome_playlist, data_criacao) VALUES('Ana Castela', 'Alto Astral', '2014/05/28');
