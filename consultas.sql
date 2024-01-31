@@ -21,10 +21,22 @@ HAVING COUNT(data_adicao) = (SELECT MAX(conta)
 
 --Quantas pessoas do sexo feminino curtem músicas do gênero musical pop? 
 --Membro proponente: Lara
+SELECT COUNT(nome_usuario) AS quantidade
+FROM Usuario
+WHERE sexo = 'Feminino'
+AND nome_usuario IN (SELECT nome_usuario 
+		   			 FROM Curte, Musica
+		   			 WHERE Curte.id_musica = Musica.id_musica
+		   			 AND Musica.genero_musical = 'Pop')
 
 
 -- Qual a playlist mais longa do usuário ‘Larinha’?
 --Membro proponente: Lara
+SELECT nome_playlist 
+FROM Playlist
+WHERE duracao_playlist IN (SELECT MAX(duracao_playlist) 
+						   FROM Playlist 
+						   WHERE nome_usuario = 'Larinha')
 
 
 --Quais músicas curtidas pelo usuário ‘Lucas’ não estão em nenhuma playlist?
