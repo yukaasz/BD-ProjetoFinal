@@ -52,10 +52,25 @@ WHERE duracao_playlist IN (SELECT MAX(duracao_playlist)
 --Quais músicas curtidas pelo usuário ‘Lucas’ não estão em nenhuma playlist?
 --Membro proponente: Lucas
 
+SELECT Musica.nome_musica
+FROM Musica
+LEFT JOIN Curte ON Musica.ID_musica = Curte.ID_musica
+LEFT JOIN E_adicionada ON Musica.ID_musica = E_adicionada.ID_musica
+LEFT JOIN Playlist ON E_adicionada.nome_usuario = Playlist.nome_usuario AND E_adicionada.nome_playlist = Playlist.nome_playlist
+WHERE Curte.nome_usuario = <nome_usuario> AND Playlist.nome_usuario IS NULL;
+
 
 --Qual o gênero musical que prevalece nas músicas da artista Billie Eilish?
 --Membro proponente: Lucas
 
+SELECT genero_musical, COUNT(*) AS quantidade
+FROM Musica
+JOIN Escreve ON Musica.ID_musica = Escreve.ID_musica
+JOIN Artista ON Escreve.ID_artista = Artista.ID_artista
+WHERE Artista.nome_artista = <nome_artista>
+GROUP BY genero_musical
+ORDER BY quantidade DESC
+LIMIT 1;
 
 --Quantas músicas de um determinado artista estão presentes em uma playlist? (sumarização)
 --Membro proponente: Renan
@@ -64,7 +79,6 @@ FROM E_adicionada NATURAL JOIN Musica NATURAL JOIN Escreve
 WHERE ID_artista = <ID_artista>
 AND nome_playlist IN (<nome_playlist_n>)
 GROUP BY ID_artista, nome_playlist;
-
 
 --Qual o tempo total de músicas curtidas por um usuário? (sumarização)
 --Membro proponente: Renan
@@ -75,7 +89,6 @@ FROM (
 	WHERE nome_usuario IN (<nome_usuario_n>)
 	GROUP BY nome_usuario
 );
-
 
 --Quantas músicas de um determinado artista foram adicionadas a uma playlist na data de criação desta mesma playlist? (sumarização)
 --Membro proponente: Renan
